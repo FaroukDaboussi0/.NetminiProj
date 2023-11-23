@@ -1,0 +1,13 @@
+ @model farouk.Models.Ticket
+ <div class="mb3">
+   <h1 class="display-4">Add new ticket</h1>
+   <br>
+ </div>
+ <form asp-action="Add" method="post">
+   
+   <div class="mb-3">
+       <label for="title" class="form-label">Ticket title</label>
+       <input asp-for="Title" type="text" class="form-control">
+   </div>
+   <button type="submit" class="btn btn-primary">Save ticket</button>
+</form>

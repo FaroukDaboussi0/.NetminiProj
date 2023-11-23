@@ -1,0 +1,31 @@
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+<h1 class="display-4">Tickets index</h1>
+<a asp-controller="Tickets" asp-action="Add" class="btn btn-success">
+   Add new
+</a><br><br>
+ 
+<table class="table">
+   @if (@ViewBag.Tickets.Count > 0) { // Show only if not empty
+       <thead>
+           <tr>
+           <th scope="col">#</th>
+           <th scope="col">Title</th>
+           <th scope="col">Action</th>
+           </tr>
+       </thead>
+   }
+   <tbody>
+       @foreach(var ticket in @ViewBag.Tickets) {
+           <tr>
+               <th scope="row">@ticket.Id</th>
+               <td>@ticket.Title</td>
+               <td>
+                    <a asp-action="Edit" asp-route-id="@ticket.Id" class="btn btn-info">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@ticket.Id" class="btn btn-danger">Delete</a>
+               </td>
+           </tr>
+       }
+   </tbody>
+</table>

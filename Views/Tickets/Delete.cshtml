@@ -1,0 +1,14 @@
+@model farouk.Models.Ticket
+
+<h1 class="display-4">Delete Ticket</h1>
+<p>Are you sure you want to delete the following ticket?</p>
+@if (Model != null) {
+    <p><strong>Title: @Model.Title</strong></p>
+
+    <form method="post" asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+} else {
+    <p>Ticket not found.</p>
+}
